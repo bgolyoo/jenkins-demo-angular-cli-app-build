@@ -1,0 +1,11 @@
+version: '3'
+services:
+  demo-app:
+    image: jenkins-demo-angular-cli-app-build:latest
+    ports:
+      - 8090:8080
+    networks:
+      - demo-app-network
+networks:
+  demo-app-network:
+    driver: bridge

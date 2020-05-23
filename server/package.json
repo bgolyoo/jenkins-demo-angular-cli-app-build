@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Frontend app hosting, with some helper rest API to test messaging functions.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@gitlab.precognox.com:10324/tas-services-messaging/frontend.git"
+  },
+  "author": "Bodor Gergely",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.5.5",
+    "express": "^4.17.1",
+    "rxjs": "^6.5.4",
+    "uuid": "^7.0.2"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.5.13",
+    "@types/express": "^4.17.3"
+  }
+}
