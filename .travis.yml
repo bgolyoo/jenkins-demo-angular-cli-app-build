@@ -23,7 +23,6 @@ stages:
 jobs:
   include:
     - stage: test
-      install: skip
       script: npm run test:ci
     - stage: deploy
       install: skip
