@@ -1,7 +1,9 @@
 pipeline {
 	agent {
-		dockerfile {
-			filename 'Dockerfile.ci'
+		docker {
+		  image 'registry2.precognox.com/jenkins/node-12-with-chrome:1.0.0'
+		  registryUrl 'https://registry2.precognox.com/'
+		  registryCredentialsId 'dockerregistry'
     }
 	}
 	environment {
