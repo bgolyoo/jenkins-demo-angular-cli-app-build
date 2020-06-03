@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'jenkins-demo-angular-cli-app-build';
+
+  hello(){
+    console.log('hello');
+  }
 }
