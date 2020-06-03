@@ -12,28 +12,60 @@ pipeline {
 	stages {
 		stage('check node/npm version') {
 			steps {
-			  echo "CHROME_BIN is ${CHROME_BIN}"
 				sh 'node -v'
 				sh 'npm -v'
 			}
 		}
 		stage('npm install') {
+		  when {
+		    anyOf {
+		      changeRequest();
+		      buildingTag()
+        }
+      }
 			steps {
 				sh 'npm ci'
 			}
 		}
 		stage('lint') {
+		  when {
+		    anyOf {
+		      changeRequest();
+		      buildingTag()
+        }
+      }
 			steps {
 				sh 'npm run lint'
 			}
 		}
 		stage('prod build') {
+		  when {
+		    anyOf {
+		      changeRequest();
+		      buildingTag()
+        }
+      }
 			steps {
 				sh 'npm run build:prod'
 			}
 		}
 
 		stage('test') {
+		  when {
+		    anyOf {
+		      changeRequest();
+		      buildingTag()
+        }
+      }
+			steps {
+				sh 'npm run test:ci'
+			}
+		}
+
+		stage('only when tag pushed') {
+		  when {
+        buildingTag()
+      }
 			steps {
 				sh 'npm run test:ci'
 			}
