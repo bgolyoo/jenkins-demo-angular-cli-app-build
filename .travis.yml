@@ -1,0 +1,31 @@
+dist: trusty
+sudo: false
+
+language: node_js
+node_js:
+  - '12'
+
+cache:
+  directories:
+    - ./node_modules
+
+install:
+  - npm install
+  - npm install puppeteer
+
+#script:
+#  - npm run test:ci
+
+stages:
+  - test
+  - deploy
+
+jobs:
+  include:
+    - stage: test
+      install: skip
+      script: npm run test:ci
+    - stage: deploy
+      install: skip
+      script: echo "Running tests ..."
+      if: tag IS present
