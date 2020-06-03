@@ -15,3 +15,10 @@ install:
 
 script:
   - npm run test:ci
+
+jobs:
+  include:
+    - stage: deploy
+      install: skip
+      script: echo "Running tests ..."
+      if: tag IS present
