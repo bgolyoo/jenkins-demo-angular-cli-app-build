@@ -10,6 +10,7 @@ pipeline {
 	stages {
 		stage('check node/npm version') {
 			steps {
+			  echo "CHROME_BIN is ${CHROME_BIN}"
 				sh 'node -v'
 				sh 'npm -v'
 			}

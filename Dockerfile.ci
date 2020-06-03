@@ -43,4 +43,4 @@ RUN apt-get update \
   xdg-utils \
   wget
 RUN npm i puppeteer --no-save
-ENV CHROME_BIN=/node_modules/puppeteer/.local-chromium/linux-737027/chrome-linux/chrome
+ENV CHROME_BIN /node_modules/puppeteer/.local-chromium/linux-737027/chrome-linux/chrome
