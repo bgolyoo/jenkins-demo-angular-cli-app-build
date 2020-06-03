@@ -4,9 +4,9 @@ pipeline {
 			filename 'Dockerfile.ci'
     }
 	}
-// 	environment {
-//     CHROME_BIN = '/node_modules/puppeteer/.local-chromium/linux-737027/chrome-linux/chrome'
-//   }
+	environment {
+    CHROME_BIN = '/node_modules/puppeteer/.local-chromium/linux-737027/chrome-linux/chrome'
+  }
 	stages {
 		stage('check node/npm version') {
 			steps {
